@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sharing_session_bloc/home_page.dart';
 import 'package:sharing_session_bloc/validators/with_cubit/UI/input_validation_page_with_cubit.dart';
 
 void main() {
@@ -11,15 +12,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'BloC Sharing Session',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: InputValidationPageWithCubit(),
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.deepPurple,
+          ),
+          useMaterial3: true,
+          appBarTheme: const AppBarTheme(
+            color: Colors.deepPurple,
+          )),
+      home: const HomePage(),
     );
   }
 }
-
-

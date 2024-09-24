@@ -9,8 +9,14 @@ class InputValidationPageWithCubit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFE6DDD6),
       appBar: AppBar(
-        title: const Text('Input validation using cubit'),
+        title: const Text(
+          'Input validation using cubit',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
         centerTitle: true,
       ),
       body: BlocProvider(
@@ -30,7 +36,7 @@ class InputValidationPageWithCubit extends StatelessWidget {
                           ? Colors.green
                           : state is ValidatorInvalid
                               ? Colors.red
-                              : Colors.yellow,
+                              : const Color(0xFF918983),
                     )),
                     child: TextField(
                       decoration: const InputDecoration(
