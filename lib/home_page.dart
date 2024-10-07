@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sharing_session_bloc/api_handling/UI/jokes_page.dart';
 import 'package:sharing_session_bloc/validators/with_cubit/UI/input_validation_page_with_cubit.dart';
 
 class HomePage extends StatelessWidget {
@@ -28,8 +29,11 @@ class HomePage extends StatelessWidget {
               ),
               child: ElevatedButton(
                 onPressed: () {
-                  // Navigator.of(context)
-                  //     .push(MaterialPageRoute(builder: (context) => NewScreen()));
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const JokesPage(),
+                    ),
+                  );
                 },
                 child: const Text('API Handling Example'),
               ),
