@@ -7,13 +7,16 @@ part 'joke_event.dart';
 part 'joke_state.dart';
 
 class JokeBloc extends Bloc<JokeBlocEvent, JokeBlocState> {
+  int index = 0 ;
+  List<Jokes> jokes = [];
+
   JokeBloc() : super(JokeBlocInitialState()) {
     on<FectJokeEvent>(
       (event, emit) async {
         try {
-          final jokes = await JokesRepo().getJokes();
+          jokes = await JokesRepo().getJokes();
           emit(
-            SuccessJokeState(jokes: jokes),
+            SuccessJokeState(jokes: jokes,index: index),
           );
         } catch (e) {
           emit(JokeFailedState());
@@ -22,8 +25,10 @@ class JokeBloc extends Bloc<JokeBlocEvent, JokeBlocState> {
     );
     on<NextJokeEvent>(
       (event, emit) async {
-        const index = 0;
-        emit(NextJokeState(index: index + 1));
+        if (index < jokes.length-1) {
+          index ++;
+        }
+        emit(SuccessJokeState(jokes: jokes,index: index));
       },
     );
   }

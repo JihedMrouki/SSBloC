@@ -67,12 +67,12 @@ class JokesPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 70),
-                    ElevatedButton(
+                    state.index < state.jokes.length - 1 ? ElevatedButton(
                       onPressed: () {
                         context.read<JokeBloc>().add(NextJokeEvent());
                       },
                       child: const Text('Another one'),
-                    ),
+                    ) : const SizedBox(),
                   ],
                 ),
               ),

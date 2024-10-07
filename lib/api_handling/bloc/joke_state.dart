@@ -1,6 +1,6 @@
 part of 'joke_bloc.dart';
 
-@immutable
+
 sealed class JokeBlocState {}
 
 final class JokeBlocInitialState extends JokeBlocState {}
