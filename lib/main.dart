@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sharing_session_bloc/bloc_logger.dart';
 import 'package:sharing_session_bloc/home_page.dart';
-import 'package:sharing_session_bloc/validators/with_cubit/UI/input_validation_page_with_cubit.dart';
 
 void main() {
+  Bloc.observer = GlobalBlocLogger.globalBlocLogger;
   runApp(const MyApp());
 }
 
