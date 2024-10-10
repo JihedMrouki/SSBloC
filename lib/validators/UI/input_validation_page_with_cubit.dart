@@ -22,7 +22,14 @@ class InputValidationPageWithCubit extends StatelessWidget {
       body: BlocProvider(
         create: (context) => ValidatorCubit(),
         child: BlocBuilder<ValidatorCubit, ValidatorState>(
+          buildWhen: (previous, current) {
+            return (previous is ValidatorInvalid &&
+                    current is ValidatorValid) ||
+                (previous is ValidatorValid && current is ValidatorInvalid) ||
+                previous is ValidatorInitial;
+          },
           builder: (context, state) {
+            print("FEL BUILDER --------------------");
             return Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(

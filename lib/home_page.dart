@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sharing_session_bloc/api_handling/UI/jokes_page.dart';
-import 'package:sharing_session_bloc/validators/with_cubit/UI/input_validation_page_with_cubit.dart';
+import 'package:sharing_session_bloc/validators/UI/input_validation_page_with_cubit.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

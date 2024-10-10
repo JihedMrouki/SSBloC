@@ -12,15 +12,6 @@ class JokesRepo {
       final response = await DataProvider.getRequest(
           endpoint: "https://official-joke-api.appspot.com/random_ten");
       if (response.statusCode == 200) {
-        // yassine's
-        // Jokes jokes = Jokes.fromJson((response.body as List).first);
-        // return [jokes];
-
-        // mine original
-        // List<Jokes> jokes = Jokes.fromJson(response.body) as List<Jokes>;
-        // return jokes;
-
-        // chatgpt :
         List<dynamic> jokesList = json.decode(response.body); // Fix
         List<Jokes> jokes =
             jokesList.map((joke) => Jokes.fromJson(joke)).toList();
